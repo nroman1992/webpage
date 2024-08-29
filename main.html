@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Página Web</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav {
+            margin: 20px 0;
+            text-align: center;
+        }
+        nav button {
+            margin: 0 15px;
+            padding: 10px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        section {
+            margin: 20px 0;
+        }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px 0;
+            background-color: #ddd;
+        }
+        .lang {
+            display: none;
+        }
+        .lang.es {
+            display: none;
+        }
+        .lang.en {
+            display: block;
+        }
+    </style>
+</head>
+<body data-lang="en">
+
+<header>
+    <h1 class="lang en">Welcome to my Web Page</h1>
+    <h1 class="lang es">Bienvenido a mi Página Web</h1>
+</header>
+
+<nav>
+    <button onclick="loadContent('index-es.html', 'es')">Español</button>
+    <button onclick="loadContent('index-en.html', 'en')">English</button>
+</nav>
+
+<div id="content">
+    <!-- El contenido se cargará aquí -->
+</div>
+
+<footer>
+    <p>&copy; 2024 Nelson Garcia Roman</p>
+</footer>
+
+<script>
+    const titles = {
+        es: "Mi página web",
+        en: "My web page"  // Puedes mantener el mismo título para ambos idiomas
+    };
+
+    function loadContent(filename, lang) {
+        const contentDiv = document.getElementById('content');
+        fetch(filename)
+            .then(response => response.text())
+            .then(data => {
+                contentDiv.innerHTML = data;
+                document.title = titles[lang];  // Establece el título de la pestaña
+                document.querySelectorAll('header .lang').forEach(el => {
+                    el.style.display = el.classList.contains(lang) ? 'block' : 'none';
+                });
+                document.body.setAttribute('data-lang', lang);
+            })
+            .catch(error => {
+                console.error('Error loading content:', error);
+                contentDiv.innerHTML = '<p>Lo siento, hubo un error al cargar el contenido.</p>';
+            });
+    }
+
+    // Carga el contenido y el título por defecto
+    loadContent('index-en.html', 'en');
+</script>
+
+</body>
+</html>
