@@ -56,11 +56,14 @@
 <header>
     <h1 class="lang en">Welcome to my Web Page</h1>
     <h1 class="lang es">Bienvenido a mi Página Web</h1>
+    <h1 class="lang pt">Bem-vindo ao meu Site</h1>
 </header>
 
 <nav>
     <button onclick="loadContent('index-en.html', 'en')">English</button>
     <button onclick="loadContent('index-es.html', 'es')">Español</button>
+    <button onclick="loadContent('index-pt.html', 'es')">Portugués</button>
+
 </nav>
 
 <div id="content">
@@ -74,7 +77,8 @@
 <script>
     const titles = {
         es: "Mi página web",
-        en: "My web page"  // Puedes mantener el mismo título para ambos idiomas
+        en: "My web page",
+        pt: "Meu site"  
     };
 
     function loadContent(filename, lang) {
