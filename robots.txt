@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /private/
+Allow: /
+Sitemap: https://nroman1992.github.io/webpage/sitemap.xml
