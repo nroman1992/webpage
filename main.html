@@ -35,12 +35,22 @@
             padding: 10px 0;
             text-align: center;
         }
+        header .profile-photo {
+            position: absolute;
+            top: 22px;
+            left: 25px;
+            width: 92px; /* Ajusta el tamaño según necesites */
+            height: 92px; /* Ajusta el tamaño según necesites */
+            border-radius: 50%;
+            object-fit: cover; /* Asegura que la imagen se ajuste bien al contenedor circular */
+            border: 3px solid white; /* Opcional: agrega un borde blanco */
+        }
         nav {
             margin: 20px 0;
             text-align: center;
         }
         nav button {
-            margin: 0 15px;
+            margin: 0 18px;
             padding: 10px;
             border: none;
             background-color: #4CAF50;
@@ -82,7 +92,7 @@
             background-color: #4CAF50;
             color: white;
             border: none;
-            padding: 10px 20px;
+            padding: 20px 20px;
             cursor: pointer;
             font-size: 16px;
         }
@@ -97,10 +107,12 @@
 <body data-lang="en">
 
 <header>
+    <img src="nelson.jpg" alt="Tu nombre" class="profile-photo">
     <h1 class="lang en">Welcome to my Projects Page</h1>
     <h1 class="lang es">Bienvenido a la Página de mis Proyectos</h1>
     <h1 class="lang pt">Bem-vindo à Página dos meus Projetos</h1>
 </header>
+
 
 <nav>
     <button onclick="loadContent('index-en.html', 'en')">English</button>
