@@ -2,26 +2,42 @@
 <head>
   
     <style>
-         .social-links {
+        .social-container {
+            display: flex; /* Usa flexbox para alinear los elementos */
+            align-items: center; /* Alinea verticalmente los elementos */
+            justify-content: space-between; /* Espacio entre los elementos */
+        }
+        
+        .social-links {
             display: flex; /* Usa flexbox para alinear los elementos */
             flex-direction: column; /* Alinea los elementos verticalmente */
             align-items: flex-start; /* Alinea los elementos a la izquierda */
+            
         }
-
+        
         .social-links h3 {
             margin: 0; /* Elimina el margen por defecto */
         }
-
+        
         .social-links a {
             display: flex; /* Asegura que el enlace sea flexible */
             align-items: center; /* Centra verticalmente el ícono y el texto */
             text-decoration: none; /* Elimina el subrayado */
             margin-bottom: 10px; /* Espacio entre los enlaces */
         }
-
+        
         .social-links i {
             margin-right: 8px; /* Espacio entre el ícono y el texto */
             font-size: 24px; /* Tamaño del ícono */
+        }
+        
+        .social-image {
+            width: 100px; /* Ajusta el tamaño según tus necesidades */
+            height: 100px; /* Asegúrate de que la altura y el ancho sean iguales para mantener la forma circular */
+            border-radius: 30%; /* Hace que la imagen sea redonda */
+            object-fit: cover; 
+            margin-right: 350px;
+            
         }
 
         /* Estilo para el enlace de LinkedIn */
@@ -79,22 +95,25 @@
 <section id="sobre-mim">
     <h2>Sobre Mim</h2>
     <p>Olá, sou Nelson Garcia Roman, graduado em Engenharia Mecânica pela Universidade de Pinar del Río (2016), Cuba. Atualmente, estou cursando um Mestrado em Matemática Aplicada no Programa de Pós-Graduação em Matemática Aplicada da Universidade Federal do Rio Grande do Sul (UFRGS, 2023 - Presente), Brasil. Tenho experiência na área de Matemática Aplicada, com foco em problemas inversos, métodos numéricos, modelagem computacional, aprendizado de máquina e aprendizado profundo. Esta é uma pequena amostra do meu trabalho e projetos.</p>
-    <div class="social-links">
-        <h3>
-            <a href="https://www.linkedin.com/in/nelson-g-roman-30b7142bb/" target="_blank" class="linkedin-link">
-                <i class="fab fa-linkedin"></i> LinkedIn
-            </a>
-        </h3>
-        <h3>
-            <a href="https://orcid.org/0009-0006-8794-9500/" target="_blank" class="orcid-link">
-                <i class="fab fa-orcid"></i> ORCID
-            </a>
-        </h3>
-        <h3>
-            <a href="https://www.youtube.com/@mielesmatematicas" target="_blank" class="youtube-link">
-                <i class="fab fa-youtube"></i> YouTube
-            </a>
-        </h3>
+    <div class="social-container">
+        <div class="social-links">
+            <h3>
+                <a href="https://www.linkedin.com/in/nelson-g-roman-30b7142bb/" target="_blank" class="linkedin-link">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+            </h3>
+            <h3>
+                <a href="https://orcid.org/0009-0006-8794-9500/" target="_blank" class="orcid-link">
+                    <i class="fab fa-orcid"></i> ORCID
+                </a>
+            </h3>
+            <h3>
+                <a href="https://www.youtube.com/@mielesmatematicas" target="_blank" class="youtube-link">
+                    <i class="fab fa-youtube"></i> YouTube
+                </a>
+            </h3>
+        </div>
+        <img src="photo.jpg" alt="imagen" class="social-image">
     </div>
 </section>
 
