@@ -1,7 +1,167 @@
 <!-- pt.html -->
+<head>
+    <!-- Otros elementos del head -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        /* Estilo para el enlace de LinkedIn */
+        .linkedin-link {
+            color: #1E90FF; /* Verde claro */
+            text-decoration: none; /* Elimina el subrayado */
+        }
+
+        .linkedin-link:hover {
+            text-decoration: underline; /* Subrayado al pasar el ratón */
+        }
+
+        /* Estilo para el enlace de ORCID */
+        .orcid-link {
+            color: #4CAF50; /* Verde claro */
+            text-decoration: none; /* Elimina el subrayado */
+        }
+
+        .orcid-link:hover {
+            text-decoration: underline; /* Subrayado al pasar el ratón */
+        }
+
+         /* Estilo para los títulos de los artículos */
+         .article-title {
+            color: #000000; /* Negro */
+            text-decoration: none; /* Elimina el subrayado */
+        }
+
+        .article-title:hover {
+            text-decoration: underline; /* Subrayado al pasar el ratón */
+        }
+
+        /* Estilo para el ícono ORCID */
+        .orcid-container {
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 5px; /* Espacio entre el ícono y el nombre */
+        }
+
+        .orcid-icon img {
+            height: 14px; /* Tamaño del ícono ORCID */
+            vertical-align: middle;
+        }
+
+        /* Estilo para el enlace del autor */
+        .author-link {
+            text-decoration: none;
+            color: black; /* Color del nombre del autor */
+        }
+
+        /* Estilo para la burbuja de información (tooltip) */
+        .author {
+            position: relative;
+            display: inline-block;
+        }
+
+        .tooltip {
+            visibility: hidden;
+            width: 200px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%; /* Posición encima del texto */
+            left: 50%;
+            margin-left: -100px; /* Centra el tooltip */
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .author:hover .tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
+        
+    </style>
+</head>
+
 <section id="sobre-mim">
     <h2>Sobre Mim</h2>
     <p>Olá, sou Nelson Garcia Roman, graduado em Engenharia Mecânica pela Universidade de Pinar del Río (2016), Cuba. Atualmente, estou cursando um Mestrado em Matemática Aplicada no Programa de Pós-Graduação em Matemática Aplicada da Universidade Federal do Rio Grande do Sul (UFRGS, 2023 - Presente), Brasil. Tenho experiência na área de Matemática Aplicada, com foco em problemas inversos, métodos numéricos, modelagem computacional, aprendizado de máquina e aprendizado profundo. Esta é uma pequena amostra do meu trabalho e projetos.</p>
+    <h3><a href="https://www.linkedin.com/in/nelson-g-roman-30b7142bb/" target="_blank" class="linkedin-link">Linkedin</a></h3>
+    <h3><a href="https://orcid.org/0009-0006-8794-9500/" target="_blank" class="orcid-link">ORCID</a></h3>
+</section>
+
+<section id="articulos"> 
+    <h2>Meus Artigos</h2>
+    <ul>
+        <li>
+            <h3><a href="https://doi.org/10.5281/zenodo.12191947" target="_blank" class="article-title">ANN-MoC Method for Inverse Transient Transport Problems in One-Dimensional Geometry</a></h3>
+            <p><strong>Journal:</strong> Latin-American Journal of Computing</p>
+            <p><strong>Authors:</strong> 
+                <span class="author">
+                    <span class="orcid-container">
+                        <a href="https://orcid.org/0009-0006-8794-9500" target="_blank" class="orcid-icon">
+                            <img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" alt="ORCID"/>
+                        </a>
+                    </span>
+                    <a href="https://orcid.org/0009-0006-8794-9500" target="_blank">Roman, N.G.</a>
+                    <span class="tooltip">Universidade Federal do Rio Grande do Sul</span>
+                </span>, 
+                <span class="author">
+                    <span class="orcid-container">
+                        <a href="https://orcid.org/0009-0001-9927-2860" target="_blank" class="orcid-icon">
+                            <img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" alt="ORCID"/>
+                        </a>
+                    </span>
+                    <a href="https://orcid.org/0009-0001-9927-2860" target="_blank">Santos, P.C.</a>
+                    <span class="tooltip">Universidade Federal do Rio Grande do Sul</span>
+                </span>, 
+                <span class="author">
+                    <span class="orcid-container">
+                        <a href="https://orcid.org/0000-0002-0411-1563" target="_blank" class="orcid-icon">
+                            <img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" alt="ORCID"/>
+                        </a>
+                    </span>
+                    <a href="https://professor.ufrgs.br/pedro" target="_blank">Konzen, P.H.A.</a>
+                    <span class="tooltip">Universidade Federal do Rio Grande do Sul</span>
+                </span>
+            </p>
+            <p>Os problemas de transporte de partículas neutras têm aplicações importantes nos campos da engenharia e da medicina, desde protocolos de segurança e qualidade até procedimentos médicos ópticos. Neste documento, é proposto o enfoque ANN-MoC para resolver o problema inverso de transporte transiente de estimativa do coeficiente de absorção a partir de medições de fluxo escalar nas fronteiras do domínio do modelo. A ideia central é ajustar uma Rede Neural Artificial (ANN) utilizando amostras geradas por soluções diretas computadas por um solucionador do Método das Características (MoC). A validação do solucionador direto é realizada em um problema de solução fabricada. Em seguida, são apresentados dois problemas inversos para testar o método ANN-MoC. No primeiro, assume-se um meio homogêneo, e no segundo, o meio é heterogêneo com um coeficiente de absorção constante por partes. Mostramos que o método pode alcançar boas estimativas, com precisão dependendo da do solucionador direto. Também incluímos um teste de sensibilidade estudando a propagação de ruído nos dados de entrada. Os resultados destacam o potencial do método proposto para ser aplicado a uma gama mais ampla de problemas inversos de transporte.</p>
+        </li>
+        <li>
+            <h3><a target="_blank">ANN-MoC Method for the Inverse Problem of Source Characterization</a></h3>
+            <p><strong>Journal:</strong> Ciência e Natura</p>
+            <p><strong>Authors:</strong> 
+                <span class="author">
+                    <span class="orcid-container">
+                        <a href="https://orcid.org/0009-0006-8794-9500" target="_blank" class="orcid-icon">
+                            <img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" alt="ORCID"/>
+                        </a>
+                    </span>
+                    <a href="https://orcid.org/0009-0006-8794-9500" target="_blank">Roman, N.G.</a>
+                    <span class="tooltip">Universidade Federal do Rio Grande do Sul</span>
+                </span>, 
+                <span class="author">
+                    <span class="orcid-container">
+                        <a href="https://orcid.org/0009-0001-9927-2860" target="_blank" class="orcid-icon">
+                            <img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" alt="ORCID"/>
+                        </a>
+                    </span>
+                    <a href="https://orcid.org/0009-0001-9927-2860" target="_blank">Santos, P.C.</a>
+                    <span class="tooltip">Universidade Federal do Rio Grande do Sul</span>
+                </span>, 
+                <span class="author">
+                    <span class="orcid-container">
+                        <a href="https://orcid.org/0000-0002-0411-1563" target="_blank" class="orcid-icon">
+                            <img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" alt="ORCID"/>
+                        </a>
+                    </span>
+                    <a href="https://professor.ufrgs.br/pedro" target="_blank">Konzen, P.H.A.</a>
+                    <span class="tooltip">Universidade Federal do Rio Grande do Sul</span>
+                </span>
+            </p>
+            <p>Aceito para publicação na Revista Ciência e Natura. O link será publicado em breve.</p>
+        </li>
+    </ul>
 </section>
 
 <section id="projetos">
@@ -17,3 +177,15 @@
     <h2>Contato</h2>
     <p>Você pode me contatar por e-mail através do <a href="mailto:ngroman1992@gmail.com">email</a> ou me seguir no <a href="https://www.instagram.com/mieles_mate/">Instagram</a> e no meu <a href="https://www.youtube.com/@mielesmatematicas/">canal do YouTube</a>.</p>
 </section>
+
+<footer>
+    <p xmlns:cc="http://creativecommons.org/ns#">Este trabalho está licenciado sob
+        <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer">
+            CC BY-NC-SA 4.0
+            <img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt="CC">
+            <img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt="BY">
+            <img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1" alt="NC">
+            <img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" alt="SA">
+        </a>
+    </p>
+</footer>
