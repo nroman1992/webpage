@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Página Web</title>
@@ -60,6 +64,32 @@
         .lang.en {
             display: block;
         }
+
+        #cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            z-index: 1000;
+        }
+        #cookie-banner button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        #cookie-banner button.deny {
+            background-color: #f44336;
+        }
+        #cookie-banner.hidden {
+            display: none;
+        }
     </style>
 </head>
 <body data-lang="en">
@@ -88,6 +118,28 @@
         pt: "My Project Page"  
     };
 
+    function setCookie(name, value, days) {
+        let expires = "";
+        if (days) {
+            const date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = name + "=" + (value || "") + expires + "; path=/";
+    }
+
+    function getCookie(name) {
+        const nameEQ = name + "=";
+        const ca = document.cookie.split(';');
+        for (let i = 0; i < ca.length; i++) {
+            let c = ca[i];
+            while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+            if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+        }
+        return null;
+    }
+
+
     function loadContent(filename, lang) {
         const contentDiv = document.getElementById('content');
         fetch(filename)
@@ -106,8 +158,26 @@
             });
     }
 
-    // Carga el contenido y el título por defecto
-    loadContent('index-en.html', 'en');
+    function acceptCookies() {
+        setCookie('cookiesAccepted', 'true', 7);
+        document.getElementById('cookie-banner').classList.add('hidden');
+    }
+
+    function denyCookies() {
+        setCookie('cookiesAccepted', 'false', 7);
+        document.getElementById('cookie-banner').classList.add('hidden');
+    }
+
+    // Cargar el contenido y el idioma guardado en cookies si existe
+    const savedLang = getCookie('lang') || 'en';
+    loadContent(`index-${savedLang}.html`, savedLang);
+
+    // Mostrar el banner si las cookies no han sido aceptadas
+    if (!getCookie('cookiesAccepted')) {
+        document.getElementById('cookie-banner').classList.remove('hidden');
+    } else {
+        document.getElementById('cookie-banner').classList.add('hidden');
+    }
 </script>
 
 </body>

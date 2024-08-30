@@ -1,27 +1,42 @@
 <!-- es.html -->
 <head>
-    <!-- Otros elementos del head -->
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+   
     <style>
+        .social-links {
+            display: flex; /* Usa flexbox para alinear los elementos */
+            flex-direction: column; /* Alinea los elementos verticalmente */
+            align-items: flex-start; /* Alinea los elementos a la izquierda */
+        }
+
+        .social-links h3 {
+            margin: 0; /* Elimina el margen por defecto */
+        }
+
+        .social-links a {
+            display: flex; /* Asegura que el enlace sea flexible */
+            align-items: center; /* Centra verticalmente el ícono y el texto */
+            text-decoration: none; /* Elimina el subrayado */
+            margin-bottom: 10px; /* Espacio entre los enlaces */
+        }
+
+        .social-links i {
+            margin-right: 8px; /* Espacio entre el ícono y el texto */
+            font-size: 24px; /* Tamaño del ícono */
+        }
+
         /* Estilo para el enlace de LinkedIn */
         .linkedin-link {
-            color: #1E90FF; /* Verde claro */
-            text-decoration: none; /* Elimina el subrayado */
+            color: #0000CD; 
         }
-
-        .linkedin-link:hover {
-            text-decoration: underline; /* Subrayado al pasar el ratón */
-        }
-
+        
         /* Estilo para el enlace de ORCID */
         .orcid-link {
-            color: #4CAF50; /* Verde claro */
-            text-decoration: none; /* Elimina el subrayado */
+            color: #4CAF50; 
         }
 
-        .orcid-link:hover {
-            text-decoration: underline; /* Subrayado al pasar el ratón */
+        /* Estilo para el enlace de Youtube */
+         .youtube-link {
+            color: #FF0000; 
         }
 
          /* Estilo para los títulos de los artículos */
@@ -87,8 +102,23 @@
 <section id="sobre-mi">
     <h2>Sobre Mí</h2>
     <p>Hola, soy Nelson Garcia Roman, graduado en Ingeniería Mecánica por la Universidad de Pinar del Río (2016), Cuba. Actualmente, estoy cursando una Maestría en Matemáticas Aplicadas en el Programa de Posgrado en Matemáticas Aplicadas de la Universidade Federal do Rio Grande do Sul (UFRGS, 2023 - Presente), Brasil. Tengo experiencia en el campo de las Matemáticas Aplicadas, con un enfoque en problemas inversos, métodos numéricos, modelado computacional, aprendizaje automático y aprendizaje profundo. Esta es una pequeña muestra de mi trabajo y proyectos.</p>
-    <h3><a href="https://www.linkedin.com/in/nelson-g-roman-30b7142bb/" target="_blank" class="linkedin-link">Linkedin</a></h3>
-    <h3><a href="https://orcid.org/0009-0006-8794-9500/" target="_blank" class="orcid-link">ORCID</a></h3>
+    <div class="social-links">
+        <h3>
+            <a href="https://www.linkedin.com/in/nelson-g-roman-30b7142bb/" target="_blank" class="linkedin-link">
+                <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+        </h3>
+        <h3>
+            <a href="https://orcid.org/0009-0006-8794-9500/" target="_blank" class="orcid-link">
+                <i class="fab fa-orcid"></i> ORCID
+            </a>
+        </h3>
+        <h3>
+            <a href="https://www.youtube.com/@mielesmatematicas" target="_blank" class="youtube-link">
+                <i class="fab fa-youtube"></i> YouTube
+            </a>
+        </h3>
+    </div>
 </section>
 
 
@@ -179,7 +209,7 @@
 
 <section id="contacto">
     <h2>Contacto</h2>
-    <p>Puedes contactarme a través de mi <a href="mailto:ngroman1992@gmail.com">correo electrónico</a> o seguirme en <a href="https://www.instagram.com/mieles_mate/">Instagram</a> y mi canal de <a href="https://www.youtube.com/@mielesmatematicas/">YouTube</a>.</p>
+    <p>Puedes contactarme a través de mi <a href="mailto:ngroman1992@gmail.com">correo electrónico</a> o seguirme en <a href="https://www.instagram.com/mieles_mate/">Instagram</a>.</p>
 </section>
 
 <footer>
