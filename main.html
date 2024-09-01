@@ -111,31 +111,6 @@
             display: block;
         }
 
-        #cookie-banner {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background-color: #333;
-            color: white;
-            padding: 15px;
-            text-align: center;
-            z-index: 1000;
-        }
-        #cookie-banner button {
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            padding: 20px 20px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-        #cookie-banner button.deny {
-            background-color: #f44336;
-        }
-        #cookie-banner.hidden {
-            display: none;
-        }
     </style>
 </head>
 <body data-lang="en">
@@ -157,36 +132,15 @@
 
 <div id="content">
     <!-- El contenido se cargará aquí -->
+    
 </div>
-
+<div id="cookie-policy"></div>
 <script>
     const titles = {
         en: "My Project Page",
         es: "My Project Page",
         pt: "My Project Page"  
     };
-
-    function setCookie(name, value, days) {
-        let expires = "";
-        if (days) {
-            const date = new Date();
-            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-            expires = "; expires=" + date.toUTCString();
-        }
-        document.cookie = name + "=" + (value || "") + expires + "; path=/";
-    }
-
-    function getCookie(name) {
-        const nameEQ = name + "=";
-        const ca = document.cookie.split(';');
-        for (let i = 0; i < ca.length; i++) {
-            let c = ca[i];
-            while (c.charAt(0) === ' ') c = c.substring(1, c.length);
-            if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
-        }
-        return null;
-    }
-
 
     function loadContent(filename, lang) {
         const contentDiv = document.getElementById('content');
@@ -205,27 +159,29 @@
                 contentDiv.innerHTML = '<p>Lo siento, hubo un error al cargar el contenido.</p>';
             });
     }
-
-    function acceptCookies() {
-        setCookie('cookiesAccepted', 'true', 7);
-        document.getElementById('cookie-banner').classList.add('hidden');
-    }
-
-    function denyCookies() {
-        setCookie('cookiesAccepted', 'false', 7);
-        document.getElementById('cookie-banner').classList.add('hidden');
-    }
+  
+    // Función para cargar cookies.html
+    function loadCookiePolicy() {
+        fetch('cookies.html')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.text();
+            })
+            .then(data => {
+                document.getElementById('cookie-policy').innerHTML = data;
+            })
+            .catch(error => {
+                console.error('Error loading cookies.html:', error);
+            });
+        }
 
     // Cargar el contenido y el idioma guardado en cookies si existe
-    const savedLang = getCookie('lang') || 'en';
+    const savedLang = 'en';
     loadContent(`index-${savedLang}.html`, savedLang);
-
-    // Mostrar el banner si las cookies no han sido aceptadas
-    if (!getCookie('cookiesAccepted')) {
-        document.getElementById('cookie-banner').classList.remove('hidden');
-    } else {
-        document.getElementById('cookie-banner').classList.add('hidden');
-    }
+    loadCookiePolicy();
+    
 </script>
 
 </body>
