@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Official website of Nelson Garcia Roman, specialized in Applied Mathematics, inverse problems and machine learning.">
-    <title>Nelson Garcia Roman - Página Web Oficial</title>
+    <title>My professional page</title>
     
 
     <!-- Google tag (gtag.js) -->
@@ -21,17 +21,45 @@
         gtag('config', 'G-9QH4DW1YKZ');
     </script>
 
-     <!-- Iubenda Banner Script -->
-     <script type="text/javascript">
+       <!-- Iubenda Banner Script -->
+    <script type="text/javascript">
         var _iub = _iub || [];
         _iub.csConfiguration = {
-            "siteId":3749327,
-            "cookiePolicyId":42122630,
-            "lang":"en",
+            "siteId": 3749327,
+            "cookiePolicyId": 42122630,
+            "lang": "en",
             "banner": {
-                "position": "bottom"
+                "position": "bottom",
+                "acceptButtonDisplay": true,
+                "rejectButtonDisplay": true,
+                "customizeButtonDisplay": true
+            },
+            "callback": {
+                onConsentGiven: function() {
+                    localStorage.setItem("cookiesAccepted", "true");
+                    hideCookieBanner();
+                }
             }
         };
+
+        function hideCookieBanner() {
+            const banner = document.querySelector('.iubenda-cs-banner');
+            if (banner) {
+                banner.style.display = 'none';
+            }
+        }
+
+        window.addEventListener('load', function() {
+            if (localStorage.getItem("cookiesAccepted") === "true") {
+                hideCookieBanner();
+            } else {
+                // El banner debe mostrarse si no se ha aceptado
+                const banner = document.querySelector('.iubenda-cs-banner');
+                if (banner) {
+                    banner.style.display = 'block';
+                }
+            }
+        });
     </script>
     <script type="text/javascript" src="https://cs.iubenda.com/autoblocking/3749327.js"></script>
     <script type="text/javascript" src="//cdn.iubenda.com/cs/gpp/stub.js"></script>
@@ -138,6 +166,7 @@
 
     </style>
 </head>
+
 <body data-lang="en">
 <!-- Imagen de perfil -->
 <img src = "photo.jpg" alt = "foto mia" class = "profile-pic">
@@ -161,42 +190,11 @@
 
 <footer>
     <a href="https://www.iubenda.com/privacy-policy/42122630" class="iubenda-black iubenda-noiframe iubenda-embed iubenda-noiframe" title="Privacy Policy">Privacy Policy</a>
-    <script type="text/javascript">
-        (function (w, d) {
-            var loader = function () {
-                var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0];
-                s.src = "https://cdn.iubenda.com/iubenda.js";
-                tag.parentNode.insertBefore(s, tag);
-            };
-            if (w.addEventListener) {
-                w.addEventListener("load", loader, false);
-            } else if (w.attachEvent) {
-                w.attachEvent("onload", loader);
-            } else {
-                w.onload = loader;
-            }
-        })(window, document);
-    </script>
     <a href="https://www.iubenda.com/privacy-policy/42122630/cookie-policy" class="iubenda-black iubenda-noiframe iubenda-embed iubenda-noiframe" title="Cookie Policy">Cookie Policy</a>
-    <script type="text/javascript">
-        (function (w, d) {
-            var loader = function () {
-                var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0];
-                s.src = "https://cdn.iubenda.com/iubenda.js";
-                tag.parentNode.insertBefore(s, tag);
-            };
-            if (w.addEventListener) {
-                w.addEventListener("load", loader, false);
-            } else if (w.attachEvent) {
-                w.attachEvent("onload", loader);
-            } else {
-                w.onload = loader;
-            }
-        })(window, document);
-    </script>
 </footer>
 
 <script>
+
     const titles = {
         en: "My Project Page",
         es: "My Project Page",
