@@ -21,6 +21,22 @@
         gtag('config', 'G-9QH4DW1YKZ');
     </script>
 
+     <!-- Iubenda Banner Script -->
+     <script type="text/javascript">
+        var _iub = _iub || [];
+        _iub.csConfiguration = {
+            "siteId":3749327,
+            "cookiePolicyId":42122630,
+            "lang":"en",
+            "banner": {
+                "position": "bottom"
+            }
+        };
+    </script>
+    <script type="text/javascript" src="https://cs.iubenda.com/autoblocking/3749327.js"></script>
+    <script type="text/javascript" src="//cdn.iubenda.com/cs/gpp/stub.js"></script>
+    <script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -59,6 +75,7 @@
             cursor: pointer;
             font-size: 16px;
         }
+
         /* Media Queries para móviles */
         @media (max-width: 600px) {
             header {
@@ -110,6 +127,7 @@
         .lang.en {
             display: block;
         }
+        
 
     </style>
 </head>
@@ -132,9 +150,45 @@
 
 <div id="content">
     <!-- El contenido se cargará aquí -->
-    
 </div>
-<div id="cookie-policy"></div>
+
+<footer>
+    <a href="https://www.iubenda.com/privacy-policy/42122630" class="iubenda-black iubenda-noiframe iubenda-embed iubenda-noiframe" title="Privacy Policy">Privacy Policy</a>
+    <script type="text/javascript">
+        (function (w, d) {
+            var loader = function () {
+                var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0];
+                s.src = "https://cdn.iubenda.com/iubenda.js";
+                tag.parentNode.insertBefore(s, tag);
+            };
+            if (w.addEventListener) {
+                w.addEventListener("load", loader, false);
+            } else if (w.attachEvent) {
+                w.attachEvent("onload", loader);
+            } else {
+                w.onload = loader;
+            }
+        })(window, document);
+    </script>
+    <a href="https://www.iubenda.com/privacy-policy/42122630/cookie-policy" class="iubenda-black iubenda-noiframe iubenda-embed iubenda-noiframe" title="Cookie Policy">Cookie Policy</a>
+    <script type="text/javascript">
+        (function (w, d) {
+            var loader = function () {
+                var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0];
+                s.src = "https://cdn.iubenda.com/iubenda.js";
+                tag.parentNode.insertBefore(s, tag);
+            };
+            if (w.addEventListener) {
+                w.addEventListener("load", loader, false);
+            } else if (w.attachEvent) {
+                w.attachEvent("onload", loader);
+            } else {
+                w.onload = loader;
+            }
+        })(window, document);
+    </script>
+</footer>
+
 <script>
     const titles = {
         en: "My Project Page",
@@ -159,28 +213,12 @@
                 contentDiv.innerHTML = '<p>Lo siento, hubo un error al cargar el contenido.</p>';
             });
     }
-  
-    // Función para cargar cookies.html
-    function loadCookiePolicy() {
-        fetch('cookies.html')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.text();
-            })
-            .then(data => {
-                document.getElementById('cookie-policy').innerHTML = data;
-            })
-            .catch(error => {
-                console.error('Error loading cookies.html:', error);
-            });
-        }
+
 
     // Cargar el contenido y el idioma guardado en cookies si existe
     const savedLang = 'en';
     loadContent(`index-${savedLang}.html`, savedLang);
-    loadCookiePolicy();
+
     
 </script>
 
