@@ -21,51 +21,51 @@
         gtag('config', 'G-9QH4DW1YKZ');
     </script>
 
-       <!-- Iubenda Banner Script -->
+    <!-- Iubenda Banner Script -->
     <script type="text/javascript">
         var _iub = _iub || [];
         _iub.csConfiguration = {
-            "siteId": 3749327,
-            "cookiePolicyId": 42122630,
+            "siteId": 3749969,
+            "cookiePolicyId": 20249418,
             "lang": "en",
             "banner": {
                 "position": "bottom",
                 "acceptButtonDisplay": true,
                 "rejectButtonDisplay": true,
                 "customizeButtonDisplay": true
+            },
+            "callback": {
+                onConsentGiven: function() {
+                    localStorage.setItem("cookiesAccepted", "true");
+                    console.log("Consent given and stored in localStorage.");
+                }
             }
         };
 
-    // Mostrar el banner si no hay consentimiento guardado
+    // Mostrar u ocultar el banner según el consentimiento
     function checkConsent() {
         const cookiesAccepted = localStorage.getItem("cookiesAccepted");
+        console.log("Consent status:", cookiesAccepted);
         if (cookiesAccepted === "true") {
-            // Asegurarse de que el banner no se muestre
             const banner = document.querySelector('.iubenda-cs-banner');
             if (banner) {
                 banner.style.display = 'none';
             }
+        } else {
+            _iub.csConfiguration.banner.display = true;
+            console.log("Banner displayed.");
         }
     }
 
-    // Guardar el consentimiento y ocultar el banner
-    function handleConsent() {
-        localStorage.setItem("cookiesAccepted", "true");
-        checkConsent();
-    }
-
     window.addEventListener('load', function() {
-        // Configurar el banner de cookies
-        _iub.callback = {
-            onConsentGiven: handleConsent
-        };
-        checkConsent();
+        checkConsent(); // Verificar el consentimiento al cargar la página
     });
-    
     </script>
-    <script type="text/javascript" src="https://cs.iubenda.com/autoblocking/3749327.js"></script>
+
+    <script type="text/javascript" src="https://cs.iubenda.com/autoblocking/3749969.js"></script>
     <script type="text/javascript" src="//cdn.iubenda.com/cs/gpp/stub.js"></script>
     <script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
+
 
     <style>
         body {
@@ -173,9 +173,9 @@
 <!-- Imagen de perfil -->
 <img src = "photo.jpg" alt = "foto mia" class = "profile-pic">
 <header>
-    <h1 class="lang en">Welcome to my Projects Page</h1>
-    <h1 class="lang es">Bienvenido a la Página de mis Proyectos</h1>
-    <h1 class="lang pt">Bem-vindo à Página dos meus Projetos</h1>
+    <h1 class="lang en">Welcome to my Professional Page</h1>
+    <h1 class="lang es">Bienvenido a mi Página Profesional</h1>
+    <h1 class="lang pt">Bem-vindo à minha Página Profissional</h1>
 </header>
 
 
@@ -198,9 +198,9 @@
 <script>
 
     const titles = {
-        en: "My Project Page",
-        es: "My Project Page",
-        pt: "My Project Page"  
+        en: "My Professional Page",
+        es: "Mi Página Profesional",
+        pt: "Minha Página Profissional"  
     };
 
     function loadContent(filename, lang) {
@@ -228,7 +228,6 @@
 
     
 </script>
-
 <script type="text/javascript">
     (function (w,d) {
         var loader = function () {
@@ -245,6 +244,7 @@
         }
     })(window, document);
 </script>
+
 
 </body>
 </html>
