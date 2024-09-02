@@ -33,33 +33,37 @@
                 "acceptButtonDisplay": true,
                 "rejectButtonDisplay": true,
                 "customizeButtonDisplay": true
-            },
-            "callback": {
-                onConsentGiven: function() {
-                    localStorage.setItem("cookiesAccepted", "true");
-                    hideCookieBanner();
-                }
             }
         };
 
-        function hideCookieBanner() {
-            const banner = document.querySelector('.iubenda-cs-banner');
-            if (banner) {
-                banner.style.display = 'none';
-            }
-        }
-
-        window.addEventListener('load', function() {
-            if (localStorage.getItem("cookiesAccepted") === "true") {
-                hideCookieBanner();
-            } else {
-                // El banner debe mostrarse si no se ha aceptado
+       // Mostrar el banner si no hay consentimiento guardado
+       function checkConsent() {
+        const cookiesAccepted = localStorage.getItem("cookiesAccepted");
+        if (cookiesAccepted === "true") {
+            // Asegurarse de que el banner no se muestre
+            setTimeout(function() {
                 const banner = document.querySelector('.iubenda-cs-banner');
                 if (banner) {
-                    banner.style.display = 'block';
+                    banner.style.display = 'none';
                 }
-            }
-        });
+            }, 500);
+        }
+    }
+
+    // Guardar el consentimiento y ocultar el banner
+    function handleConsent() {
+        localStorage.setItem("cookiesAccepted", "true");
+        checkConsent();
+    }
+
+    window.addEventListener('load', function() {
+        // Configurar el banner de cookies
+        _iub.callback = {
+            onConsentGiven: handleConsent
+        };
+        checkConsent();
+    });
+    
     </script>
     <script type="text/javascript" src="https://cs.iubenda.com/autoblocking/3749327.js"></script>
     <script type="text/javascript" src="//cdn.iubenda.com/cs/gpp/stub.js"></script>
